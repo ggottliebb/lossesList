@@ -7,17 +7,17 @@ const fakeDatabase = {
   todos: [
     {
       id: counter++,
-      text: 'Buy milk',
+      text: '11111111',
       completed: true
     },
     {
       id: counter++,
-      text: 'Do laundry',
+      text: '22222222',
       completed: false
     },
     {
       id: counter++,
-      text: 'Clean bathroom',
+      text: '33333333',
       completed: false
     },
   ]
