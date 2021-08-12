@@ -111,7 +111,7 @@ function Sidebar(props) {
               variant="subtitle1"
               color={props.selectedTodo === todo.id ? 'secondary' : 'textPrimary'}
             >
-              {todo.text}
+              {todo.text[2]}
             </Typography>
             </ListItem>
           ))}

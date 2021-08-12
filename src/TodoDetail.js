@@ -48,13 +48,205 @@ function TodoDetail(props) {
     <div>
       {todo && (
         <div>
-          <TextField
-            value={todoText}
-            onChange={e => setTodoText(e.target.value)}
-            label="Todo"
-            fullWidth
-            margin="normal"
-          />
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <TextField
+                  value={todoText[0]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Дата СС"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[1]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Дата заявления"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[2]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Номер обращения"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[3]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Номер дела"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[4]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Страхователь"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[5]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Телефон клиента"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[6]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="ВИД страхования"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[7]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Справка Да/НЕТ"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[8]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Выплатник"
+                  fullWidth
+                  margin="normal"
+                />
+              </div>
+              <div class="col-sm">
+
+
+
+                <TextField
+                  value={todoText[9]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="СТОА"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[10]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Направление/факт затрат"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[11]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Серия/номер полиса"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[12]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Франшиза"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[13]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Примерная сумма ущерба"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[14]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Сумма страхового возмещения"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[15]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Дата выплаты"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[16]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Марка ТС"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[17]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Г/н"
+                  fullWidth
+                  margin="normal"
+                />
+              </div>
+              <div class="col-sm">
+
+
+                <TextField
+                  value={todoText[18]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Примечание"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[19]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Перечень повреждений"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[20]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Дата осмотра"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[21]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Оригиналы документов"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[22]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Статус"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[23]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Комментарии/дата комментария"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[24]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Комментарии/дата комментария"
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  value={todoText[25]}
+                  onChange={e => setTodoText(e.target.value)}
+                  label="Комментарии/дата комментария"
+                  fullWidth
+                  margin="normal"
+                />
+              </div>
+            </div>
+          </div>
+
+
           <FormControlLabel
             control={
               <Checkbox
@@ -81,8 +273,9 @@ function TodoDetail(props) {
             Удалить
           </Button>
         </div>
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 }
 
