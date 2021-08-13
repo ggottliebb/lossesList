@@ -75,7 +75,7 @@ function App(props) {
 
   let normalizedApi = useNormalizedApi()
   let db = useDB();
-
+console.log(db.entities.Todo)
   let [fetchTodosRequest, fetchTodos] = useAsync(normalizedApi.fetchTodos)
 
   useEffect(() => {
@@ -111,8 +111,8 @@ function App(props) {
           <div className={classes.todoDetail}>
             <TodoDetail id={selectedTodoId} />
           </div>
-          {/* <div className={classes.storeInspectors}>
-            <div className={classes.storeInspector}>
+          <div className={classes.storeInspectors}>
+            {/* <div className={classes.storeInspector}>
               <ContainerDimensions>
                 {({ height, width }) => (
                   <React.Fragment>
@@ -132,8 +132,8 @@ function App(props) {
                   </React.Fragment>
                 )}
               </ContainerDimensions>
-            </div>
-            <div className={classes.storeInspector}>
+            </div> */}
+            {/* <div className={classes.storeInspector}>
               <ContainerDimensions>
                 {({ height, width }) => (
                   <React.Fragment>
@@ -153,8 +153,8 @@ function App(props) {
                   </React.Fragment>
                 )}
               </ContainerDimensions>
-            </div>
-          </div> */}
+            </div> */}
+          </div>
         </div>
       </div>
     </div>

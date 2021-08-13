@@ -140,11 +140,19 @@ const addTodo = text =>
 
 const updateTodo = (id, { text, completed }) =>
   delay(200).then(() => {
-    console.log(fakeDatabase.todos)
-    console.log(text)
-    console.log(completed)
+    // console.log(fakeDatabase.todos)
+    // console.log(1)
+    // console.log(text)
+    // console.log(completed)
+    // let mas = [];
+    // for (let key in text) {
+    //   mas.push(text[key])
+    // }
     const todo = fakeDatabase.todos.find(t => t.id === id);
-    todo.text = text === undefined ? todo.text : text.todoText;
+    // console.log(123)
+    // console.log(todo)
+    // console.log(mas)
+    todo.text = text === undefined ? todo.text : text;
     todo.completed = completed === undefined ? todo.completed : completed;
     return todo;
   });
