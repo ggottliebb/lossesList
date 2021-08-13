@@ -86,7 +86,7 @@ const AddTodoDialog = (props) => {
 
               <TextField
                 value={{text}.numapp}
-                onChange={(e) => console.log(text)}
+                onChange={(e) => setText({...text, numapp: e.target.value})}
                 autoFocus
                 margin="dense"
                 id="numapp"

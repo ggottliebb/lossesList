@@ -7,38 +7,38 @@ const fakeDatabase = {
   todos: [
     {
       id: counter++,
-      text:[
-      "11.11.11",
-      "12.12.12",
-      "1111111",
-      "222222",
-      "test",
-      "+79033090000",
-      "1",
-      "1",
-      "1",
-      "test",
-      "1",
-      "1111",
-      "1111",
-      "1",
-      "1",
-      "15.12.12",
-      "test",
-      "111",
-      "test",
-      "test",
-      "11.11.11",
-      "test",
-      "1",
-      "test",
-      "test",
-      "test"],
+      text: [
+        "11.11.11",
+        "12.12.12",
+        "1111111",
+        "222222",
+        "test",
+        "+79033090000",
+        "1",
+        "1",
+        "1",
+        "test",
+        "1",
+        "221111",
+        "1111",
+        "1",
+        "1",
+        "15.12.12",
+        "test",
+        "111",
+        "test",
+        "test",
+        "11.11.11",
+        "test",
+        "1",
+        "test",
+        "test",
+        "test"],
       completed: false
     },
     {
       id: counter++,
-      text:[
+      text: [
         "11.11.11",
         "12.12.12",
         "22222",
@@ -70,7 +70,7 @@ const fakeDatabase = {
     },
     {
       id: counter++,
-      text:[
+      text: [
         "11.11.11",
         "12.12.12",
         "33333",
@@ -125,19 +125,26 @@ const fetchTodo = id =>
 
 const addTodo = text =>
   delay(200).then(() => {
+    let mas = [];
+    for (let key in text) {
+      mas.push(text[key])
+    }
     const todo = {
       id: counter++,
-      text,
+      text: mas,
       completed: false
     };
     fakeDatabase.todos.push(todo);
     return todo;
   });
 
-const updateTodo = (id, {text, completed}) =>
+const updateTodo = (id, { text, completed }) =>
   delay(200).then(() => {
+    console.log(fakeDatabase.todos)
+    console.log(text)
+    console.log(completed)
     const todo = fakeDatabase.todos.find(t => t.id === id);
-    todo.text = text === undefined ? todo.text : text;
+    todo.text = text === undefined ? todo.text : text.todoText;
     todo.completed = completed === undefined ? todo.completed : completed;
     return todo;
   });

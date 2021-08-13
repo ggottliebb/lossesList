@@ -19,7 +19,37 @@ function TodoDetail(props) {
   let normalizedApi = useNormalizedApi()
   let db = useDB();
 
-  let [todoText, setTodoText] = useState('')
+  let [todoText, setTodoText] = useState(
+    [""]
+  // {
+  //   datess: "",
+  //   dateapp: "",
+  //   numapp: "",
+  //   numcase: "",
+  //   polic: "",
+  //   tel: "",
+  //   type: "",
+  //   cert: "",
+  //   pay: "",
+  //   stao: "",
+  //   fact: "",
+  //   numpoli: "",
+  //   franch: "",
+  //   sumdam: "",
+  //   sumcompen: "",
+  //   datepay: "",
+  //   mark: "",
+  //   numauto: "",
+  //   note: "",
+  //   damlist: "",
+  //   dateinsp: "",
+  //   docorig: "",
+  //   status: "",
+  //   com1: "",
+  //   com2: "",
+  //   com3: "",
+  // }
+  )
   let [completed, setCompleted] = useState(false)
 
   let todo = db.executeQuery(queries.getTodoById(props.id))
@@ -52,64 +82,71 @@ function TodoDetail(props) {
             <div class="row">
               <div class="col-sm">
                 <TextField
+                // placeholder="111"
                   value={todoText[0]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[0]:e.target.value})}
+
+                  // onChange={e => setTodoText(e.target.value)}
                   label="Дата СС"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
+                                // select={true}
                   value={todoText[1]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[1]:e.target.value})}
                   label="Дата заявления"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
+                                // select={false}
                   value={todoText[2]}
-                  onChange={e => setTodoText(e.target.value)}
+                  // const td = {todoText[2]= e.target.value}
+                  onChange={(e) => setTodoText({todoText,[2]:e.target.value})}
                   label="Номер обращения"
-                  fullWidth
+                  fullWidth={true}
                   margin="normal"
                 />
                 <TextField
+                                // disabled={false}
                   value={todoText[3]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[3]:e.target.value})}
                   label="Номер дела"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[4]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[4]:e.target.value})}
                   label="Страхователь"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[5]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[5]:e.target.value})}
                   label="Телефон клиента"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[6]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[6]:e.target.value})}
                   label="ВИД страхования"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[7]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[7]:e.target.value})}
                   label="Справка Да/НЕТ"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[8]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[8]:e.target.value})}
                   label="Выплатник"
                   fullWidth
                   margin="normal"
@@ -121,63 +158,63 @@ function TodoDetail(props) {
 
                 <TextField
                   value={todoText[9]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[9]:e.target.value})}
                   label="СТОА"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[10]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[10]:e.target.value})}
                   label="Направление/факт затрат"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[11]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[11]:e.target.value})}
                   label="Серия/номер полиса"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[12]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[12]:e.target.value})}
                   label="Франшиза"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[13]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[13]:e.target.value})}
                   label="Примерная сумма ущерба"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[14]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[14]:e.target.value})}
                   label="Сумма страхового возмещения"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[15]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[15]:e.target.value})}
                   label="Дата выплаты"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[16]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[16]:e.target.value})}
                   label="Марка ТС"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[17]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[17]:e.target.value})}
                   label="Г/н"
                   fullWidth
                   margin="normal"
@@ -188,56 +225,56 @@ function TodoDetail(props) {
 
                 <TextField
                   value={todoText[18]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[18]:e.target.value})}
                   label="Примечание"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[19]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[19]:e.target.value})}
                   label="Перечень повреждений"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[20]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[20]:e.target.value})}
                   label="Дата осмотра"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[21]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[21]:e.target.value})}
                   label="Оригиналы документов"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[22]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[22]:e.target.value})}
                   label="Статус"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[23]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[23]:e.target.value})}
                   label="Комментарии/дата комментария"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[24]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[24]:e.target.value})}
                   label="Комментарии/дата комментария"
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   value={todoText[25]}
-                  onChange={e => setTodoText(e.target.value)}
+                  onChange={(e) => setTodoText({todoText,[25]:e.target.value})}
                   label="Комментарии/дата комментария"
                   fullWidth
                   margin="normal"
@@ -265,6 +302,7 @@ function TodoDetail(props) {
             Обновить
           </Button>
           <Button
+          rows={2}
             variant="contained"
             color="secondary"
             onClick={deleteTodo}
