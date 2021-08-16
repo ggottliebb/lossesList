@@ -10,6 +10,11 @@ import { useNormalizedApi } from './db'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import Select from '@material-ui/core/Select';
+import Switch from '@material-ui/core/Switch';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+
 const AddTodoDialog = (props) => {
   let normalizedApi = useNormalizedApi()
   let [text, setText] = useState({
@@ -339,7 +344,20 @@ const AddTodoDialog = (props) => {
                 type="text"
                 style={{ width: 320 }}
               />
-              <FormControlLabel
+              {/* <FormControlLabel */}
+              <Typography component="div" >
+
+                <Grid component="label" container alignItems="center" spacing={1} >
+                  <Grid item> Справка Нет</Grid>
+                  <Grid item>
+                    <Switch onChange={(e) => setText({ ...text, cert: e.target.checked })} name="checkedC" />
+                  </Grid>
+                  <Grid item>Да</Grid>
+                </Grid>
+              </Typography>
+              {/* /> */}
+
+              {/* <FormControlLabel
                 control={
                   <Checkbox
                     checked={text.cert}
@@ -347,7 +365,21 @@ const AddTodoDialog = (props) => {
                   />
                 }
                 label="Справка Да/НЕТ"
+              /> */}
+              <FormControlLabel
+                label="Справка Да/НЕТ"
+                options={["11"]}
+                control={
+                  <Select
+
+                    // checked={text.cert}
+                    options={["11"]}
+                    onChange={(e) => setText({ ...text, cert: e.target.checked })}
+                  />
+                }
+
               />
+
             </div>
           </div>
         </div>
