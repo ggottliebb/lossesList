@@ -17,6 +17,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from "@material-ui/icons/Search";
 
+
 const drawerWidth = 360;
 
 const styles = theme => ({
@@ -31,7 +32,6 @@ const styles = theme => ({
     width: drawerWidth,
   },
   toolbar: {
-    // ...theme.Toolbar,
     ...theme.mixins.toolbar,
     position: 'relative'
   },
@@ -66,6 +66,7 @@ function Sidebar(props) {
   const { classes } = props;
 
   let [addTodoDialogOpen, setAddTodoDialogOpen] = useState(false);
+
   let [todos1, setTodos] = useState(props.todos);
 
   useEffect(() => {
@@ -96,6 +97,7 @@ function Sidebar(props) {
     }
   };
 
+
   return (
     <div className={classes.drawer}>
       <div className={classes.toolbar}>
@@ -111,13 +113,16 @@ function Sidebar(props) {
           <Tab label="В работе" classes={{ root: classes.tabRoot }} />
           <Tab label="В архиве" classes={{ root: classes.tabRoot }} />
           <Tab label="Все" classes={{ root: classes.tabRoot }} />
+
         </Tabs>
         <div className={classes.addTodoButton}>
           <IconButton onClick={openAddTodoDialog} color="primary" component="span">
             <AddIcon />
           </IconButton>
           <AddTodoDialog
+
             todos={todos1}
+
             open={addTodoDialogOpen}
             onCancel={closeAddTodoDialog}
             onSuccess={closeAddTodoDialog}
@@ -125,6 +130,7 @@ function Sidebar(props) {
         </div>
       </div>
       <Divider />
+
       <TextField
       style={{ width: 362, marginLeft:16, marginRight:16 }}
         label="Поиск"
@@ -148,17 +154,20 @@ function Sidebar(props) {
       {props.fetchTodosRequest.fulfilled && (
         <List>
           {todos1.map((todo, index) => (
+
             <ListItem
               button
               key={todo.id}
               onClick={(e) => props.onSelectedTodoChange(todo.id)}
             >
+
               <Typography
                 variant="subtitle1"
                 color={props.selectedTodo === todo.id ? 'secondary' : 'textPrimary'}
               >
                 {`${todo.text[3]}, ${todo.text[4]}, ${todo.text[17]}, ${todo.text[16]}, ${todo.text[22]}`}
               </Typography>
+
             </ListItem>
           ))}
         </List>
@@ -172,8 +181,10 @@ Sidebar.propTypes = {
 };
 
 Sidebar.defaultProps = {
+
   onFilterChange: () => { },
 };
 export default withStyles(styles)(Sidebar);
 
 // export default Sidebar;
+

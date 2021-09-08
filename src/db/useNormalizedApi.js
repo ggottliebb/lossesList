@@ -93,6 +93,7 @@ const useNormalizedApi = () => {
         schema: apiSchemas.deleteTodoResponseSchema
       };
     },
+
     authUser: async (name,p) => {
       let todo = await api.authUser(name,p);
       let { result, entities } = normalize(
@@ -115,3 +116,4 @@ const useNormalizedApi = () => {
 };
 
 export default useNormalizedApi;
+

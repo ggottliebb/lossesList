@@ -28,7 +28,6 @@ const styles = theme => ({
 
   },
   toolbar: theme.mixins.toolbar,
-  // toolbar: theme.Toolbar,
 
   contentAndToolbar: {
     flex: 3,
@@ -39,6 +38,7 @@ const styles = theme => ({
     // padding: theme.spacing(1),
     padding: theme.spacing.unit * 3,
     padding: 10,
+
     height: 'calc(100vh - 64px)',
     boxSizing: 'border-box',
   },
@@ -92,6 +92,8 @@ function App(props) {
   let [fetchTodosRequest, fetchTodos] = useAsync(normalizedApi.fetchTodos)
 
 
+
+
   useEffect(() => {
     fetchTodos(filter)
   }, [filter])
@@ -119,7 +121,9 @@ function App(props) {
             <Typography variant="h6" color="inherit" noWrap>
               Реестр УУ
             </Typography>
+
             <label className='authbut' onClick={() => setContext(false)}>Выход</label>
+
           </Toolbar>
         </AppBar>
         <div className={classes.content}>
@@ -127,7 +131,6 @@ function App(props) {
             <TodoDetail id={selectedTodoId} />
           </div>
           <div className={classes.storeInspectors}>
-
           </div>
         </div>
       </div>
@@ -138,4 +141,5 @@ function App(props) {
 App.propTypes = {
   classes: PropTypes.object.isRequired,
 };
+
 export default withStyles(styles)(App);

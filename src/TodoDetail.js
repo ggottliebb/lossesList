@@ -11,24 +11,22 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import PhoneInput from 'react-phone-input-2';
 import { Context } from "./Context";
+
 const styles = theme => ({
   button: {
     margin: theme.spacing.unit,
   }
 });
 
-
 function TodoDetail(props) {
-  // const classes = useStyles()
   const { classes } = props
-  // const [context, setContext] = useContext(Context);
-// console.log(context)
   let normalizedApi = useNormalizedApi()
   let db = useDB();
 
   const [open, setOpen] = React.useState({
     cert: false,
     franchType: false,
+
     type: false,
     pay: false,
     docorig: false
@@ -42,8 +40,7 @@ function TodoDetail(props) {
   let todo = db.executeQuery(queries.getTodoById(props.id))
 
   const updateTodo = () => {
-    // console.log(777)
-    // console.log(todoText)
+
     normalizedApi.updateTodo(props.id, {
       text: todoText,
       completed: completed
@@ -65,13 +62,7 @@ function TodoDetail(props) {
     }
   }, [todoId])
 
-  // useEffect(() => {
-  // }, [todo])
   let t;
-  // let dateSS = todoText[0].toString();
-  // console.log(dateSS)
-  // console.log(todoText[0])
-  // console.log(todoText[0])
 
   return (
     <div>
@@ -81,6 +72,7 @@ function TodoDetail(props) {
             <div class="row">
               <div class="col-sm">
                 <TextField
+
                   // placeholder="111"
                   onChange={(e) => { t = todoText, t[0] = e.target.value, setTodoText(t) }}
                   // type="date"
@@ -97,6 +89,7 @@ function TodoDetail(props) {
                 />
                 <TextField
                   // select={true}
+
                   value={todoText[1]}
                   onChange={(e) => { t = todoText, t[1] = e.target.value, setTodoText(t) }}
                   label="Дата заявления"
@@ -110,18 +103,19 @@ function TodoDetail(props) {
                   value={todo.id}
                   // const td = {todoText[2]= e.target.value}
                   // onChange={(e) => { t = todoText, t[2] = e.target.value, setTodoText(t) }}
+
                   label="Номер обращения"
                   fullWidth={true}
                   margin="normal"
                 />
                 <TextField
-                  // disabled={false}
                   value={todoText[3]}
                   onChange={(e) => { t = todoText, t[3] = e.target.value, setTodoText(t) }}
                   label="Номер дела"
                   fullWidth
                   margin="normal"
                   InputLabelProps={{ shrink: true }}
+
                 />
                 <TextField
                   value={todoText[4]}
@@ -130,6 +124,7 @@ function TodoDetail(props) {
                   fullWidth
                   margin="normal"
                   InputLabelProps={{ shrink: true }}
+
                 />
                 <TextField
                   value={todoText[11]}
@@ -145,7 +140,9 @@ function TodoDetail(props) {
                   label="Примерная сумма ущерба"
                   fullWidth
                   margin="normal"
+
                   InputLabelProps={{ shrink: true }}
+
                 />
                 <TextField
                   value={todoText[14]}
@@ -161,6 +158,7 @@ function TodoDetail(props) {
                   label="Дата выплаты"
                   fullWidth
                   margin="normal"
+
                   InputLabelProps={{ shrink: true }}
                 />
               </div>
@@ -172,6 +170,7 @@ function TodoDetail(props) {
                   fullWidth
                   margin="normal"
                   InputLabelProps={{ shrink: true }}
+
                 />
                 <TextField
                   value={todoText[16]}
@@ -180,6 +179,7 @@ function TodoDetail(props) {
                   fullWidth
                   margin="normal"
                   InputLabelProps={{ shrink: true }}
+
                 />
                 <TextField
                   value={todoText[17]}
@@ -187,8 +187,10 @@ function TodoDetail(props) {
                   label="Г/н"
                   fullWidth
                   margin="normal"
+
                   pattern="[А-Яа-яЁё ]+"
                   InputLabelProps={{ shrink: true }}
+
                 />
                 <TextField
                   value={todoText[19]}
@@ -196,7 +198,9 @@ function TodoDetail(props) {
                   label="Перечень повреждений"
                   fullWidth
                   margin="normal"
+
                   InputLabelProps={{ shrink: true }}
+
                 />
                 <TextField
                   value={todoText[20]}
@@ -204,7 +208,9 @@ function TodoDetail(props) {
                   label="Дата осмотра"
                   fullWidth
                   margin="normal"
+
                   InputLabelProps={{ shrink: true }}
+
                 />
                 <TextField
                   value={todoText[22]}
@@ -212,7 +218,9 @@ function TodoDetail(props) {
                   label="Статус"
                   fullWidth
                   margin="normal"
+
                   InputLabelProps={{ shrink: true }}
+
                 />
                 <TextField
                   value={todoText[9]}
@@ -220,7 +228,9 @@ function TodoDetail(props) {
                   label="СТОА"
                   fullWidth
                   margin="normal"
+
                   InputLabelProps={{ shrink: true }}
+
                 />
                 <TextField
                   value={todoText[12]}
@@ -247,6 +257,8 @@ function TodoDetail(props) {
                     <MenuItem value={"Динамическая"}>Динамическая</MenuItem>
                   </Select>
                 </FormControl>
+
+
               </div>
               <div class="col-sm">
 
@@ -256,6 +268,7 @@ function TodoDetail(props) {
                   placeholder="+7 (123) 456-78-90"
                   disableDropdown={true}
                   value={todoText[5]}
+
                   // onChange={(e) => { console.log(todoText[4]) }}
                   onChange={(e) => { t = todoText, t[5] = e, setTodoText(t) }}
 
@@ -266,6 +279,8 @@ function TodoDetail(props) {
                     Справка
                   </Button>
                   <FormControl >
+
+
                     <Select
                       labelId="demo-controlled-open-select-label"
                       id="demo-controlled-open-select"
@@ -273,6 +288,7 @@ function TodoDetail(props) {
                       onClose={() => setOpen({ ...open, cert: false })}
                       onOpen={() => setOpen({ ...open, cert: true })}
                       value={todoText[7] ? "Да" : "Нет"}
+
                       onChange={(e) => { t = todoText, t[7] = e.target.value, setTodoText(t) }}
                     >
                       <MenuItem value={true} >Да</MenuItem>
@@ -285,6 +301,7 @@ function TodoDetail(props) {
                   <Button onClick={handleOpen}>
                     Вид страхования
                   </Button>
+
                   <FormControl >
                     <Select
                       labelId="demo-controlled-open-select-label"
@@ -293,6 +310,7 @@ function TodoDetail(props) {
                       onClose={() => setOpen({ ...open, type: false })}
                       onOpen={() => setOpen({ ...open, type: true })}
                       value={todoText[6]}
+
                       onChange={(e) => { t = todoText, t[6] = e.target.value, setTodoText(t) }}
                     >
                       <MenuItem value={"Каско"}>Каско</MenuItem>
@@ -301,11 +319,11 @@ function TodoDetail(props) {
                     </Select>
                   </FormControl>
                 </div>
-
                 <div>
                   <Button onClick={handleOpen}>
                     Выплатники
                   </Button>
+
                   <FormControl >
                     <Select
                       labelId="demo-controlled-open-select-label"
@@ -326,6 +344,7 @@ function TodoDetail(props) {
                   <Button onClick={handleOpen}>
                     Оригиналы документов
                   </Button>
+
                   <FormControl >
                     <Select
                       labelId="demo-controlled-open-select-label"
@@ -334,6 +353,7 @@ function TodoDetail(props) {
                       onClose={() => setOpen({ ...open, docorig: false })}
                       onOpen={() => setOpen({ ...open, docorig: true })}
                       value={todoText[21] ? "Да" : "Нет"}
+
                       onChange={(e) => { t = todoText, t[21] = e.target.value, setTodoText(t) }}
                     >
                       <MenuItem value={true}>Да</MenuItem>
@@ -353,12 +373,11 @@ function TodoDetail(props) {
                   // fullWidth={true}
                   InputLabelProps={{ shrink: true }}
                   style={{ width: 320}}
+
                 />
               </div>
             </div>
           </div>
-
-
           <FormControlLabel
             control={
               <Checkbox
@@ -396,5 +415,5 @@ TodoDetail.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-// export default TodoDetail;
+
 export default withStyles(styles)(TodoDetail);

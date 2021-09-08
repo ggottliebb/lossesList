@@ -9,6 +9,7 @@ const rootElement = document.getElementById("root");
 ReactDOM.render(
   <DatabaseProvider >
       <Auth />
+
   </DatabaseProvider>,
   rootElement
 );

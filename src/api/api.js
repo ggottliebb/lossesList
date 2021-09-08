@@ -31,6 +31,7 @@ const fakeDatabase = {
         "test",
         "1",
         "в работе",
+
         "test",
         "test"],
       completed: false
@@ -46,6 +47,16 @@ const fakeDatabase = {
         "+79033090000",
         "1",
         "1",
+        "11.11.11",
+        "12.12.12",
+        "22222",
+        "33333",
+        "test",
+        "+79033090000",
+        "1",
+        "1",
+        "1",
+
         "test",
         "1",
         "1111",
@@ -61,6 +72,7 @@ const fakeDatabase = {
         "test",
         "1",
         "в работе",
+
         "test",
         "test"],
 
@@ -87,6 +99,7 @@ const fakeDatabase = {
         "test",
         "VW",
         "о003оо77",
+
         "test",
         "11.11.11",
         "test",
@@ -96,6 +109,7 @@ const fakeDatabase = {
         "test"],
       completed: true
     },
+
   ],
   users: [{
     id: 1,
@@ -109,6 +123,7 @@ const fakeDatabase = {
     p: 123,
     role: "view"
   }
+
   ]
 };
 
@@ -174,6 +189,7 @@ const deleteTodo = (id) =>
     return deletedTodo;
   });
 
+
 const authUser = (name, p) =>
   delay(200).then(() => {
     console.log(p)
@@ -184,6 +200,7 @@ const authUser = (name, p) =>
     return {user:res};
   });
 
+
 export default {
   fetchTodos,
   fetchTodo,
@@ -191,4 +208,5 @@ export default {
   updateTodo,
   deleteTodo,
   authUser
+
 }
