@@ -4,32 +4,25 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import App from "./App";
 import Login from "./Login";
 import { Context } from "./Context";
+// import { createBrowserHistory } from "history";
 
 export default function Auth() {
+  // const customHistory = createBrowserHistory();
   const [context, setContext] = useState(false);
-  const user = context;
-  console.log(user)
-  // console.log(user.value)
-  // console.log(user.state)
-
-  // if (user.status == "fulfilled") {
-  // console.log(user)}
-  // useEffect(() => {
-  //   // fetchTodos(filter)
-  // }, [context.state])
+  
   return (
     <Context.Provider value={[context, setContext]}>
       <BrowserRouter>
         <Switch>
-          {!user &&
+          {!context &&
             <Fragment>
               <Route path="/login" component={Login} />
               <Redirect to="/login" />
             </Fragment>
             }
-          {user &&
+          {context &&
             <Fragment>
-              <Route path="/dashboard" component={App} exact />
+              <Route path="/" component={App}  />
               <Redirect to="/dashboard" />
             </Fragment>
           }

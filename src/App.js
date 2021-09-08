@@ -75,8 +75,9 @@ const filterQueries = {
 
 function App(props) {
   let [context, setContext] = useContext(Context);
-  console.log(context)
-
+  if (context.status == "fulfilled") {
+  console.log(context.value.status)
+  }
   const { classes } = props;
   let [filter, setFilter] = useState('active');
   let [selectedTodoId, setSelectedTodoId] = useState();
@@ -90,6 +91,7 @@ function App(props) {
   console.log(db.entities.Todo)
   let [fetchTodosRequest, fetchTodos] = useAsync(normalizedApi.fetchTodos)
 
+
   useEffect(() => {
     fetchTodos(filter)
   }, [filter])
@@ -102,7 +104,6 @@ function App(props) {
   }, [todoIds])
 
   return (
-    // <Context.Provider value={[context, setContext]}>
     <div className={classes.root}>
       <Sidebar
         todos={todos}
@@ -118,7 +119,7 @@ function App(props) {
             <Typography variant="h6" color="inherit" noWrap>
               Реестр УУ
             </Typography>
-            <label className='authbut' onClick={() => setContext({ name: "", state: false })}>Выход</label>
+            <label className='authbut' onClick={() => setContext(false)}>Выход</label>
           </Toolbar>
         </AppBar>
         <div className={classes.content}>
@@ -131,7 +132,6 @@ function App(props) {
         </div>
       </div>
     </div>
-    // </Context.Provider>
   );
 }
 

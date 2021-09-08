@@ -7,17 +7,16 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Typography from '@material-ui/core/Typography';
 import { Context } from "./Context";
 
-export default function Login() {
+export default function Login(props) {
+
   const [context, setContext] = useContext(Context);
   let normalizedApi = useNormalizedApi();
-
-  const login = (e) => {
+  let res = {};
+  const login = async (e) => {
     e.preventDefault();
-        console.log(e.currentTarget[1].value)
-        console.log(e.currentTarget[3].value)
-    setContext(normalizedApi.authUser(e.currentTarget[1].value, e.currentTarget[3].value)) 
+    res = await normalizedApi.authUser(e.currentTarget[1].value, e.currentTarget[3].value);
+    setContext(res)
   }
-  console.log(context)
 
   return (
     <div className='login-container'>
@@ -65,46 +64,3 @@ export default function Login() {
     </div>
   );
 }
-
-
-
-// export default function Login(){
-// // const Login = () => {
-//   const [credentials, setCredentials] = useState({
-//       name: '',
-//       password: ''
-//   });
-
-//   const onChange = ({target: {name, value}}) => {
-//       setCredentials({...credentials, [name]: value})
-//   };
-//   let normalizedApi = useNormalizedApi()
-
-//   const authUser = () => {
-//     normalizedApi.authUser()
-//   }
-
-//   const onSubmit = (event) => {
-//       if (event) {
-//           event.preventDefault();
-//       }
-
-//       fetch('/login', {
-//           method: 'POST',
-//           body: JSON.stringify(credentials)
-//       })
-//           .then(r => r.json())
-//           // .then(token => login(token))
-//   };
-
-//   return <form onSubmit={onSubmit}>
-//       <input name="name"
-//              value={credentials.name}
-//              onChange={onChange}/>
-//       <input name="password"
-//              value={credentials.password}
-//              onChange={onChange}/>
-//   </form>
-// };
-
-// import React from 'react';
