@@ -75,13 +75,14 @@ const filterQueries = {
 
 function App(props) {
   let [context, setContext] = useContext(Context);
-  if (context.status == "fulfilled") {
-  console.log(context.value.status)
-  }
+  // if (context.status == "fulfilled") {
+  // console.log(context.value.status)
+  // }
   const { classes } = props;
   let [filter, setFilter] = useState('active');
+
   let [selectedTodoId, setSelectedTodoId] = useState();
-  
+
   // const handleExitAuth = () => {
   //   setContext(false);
   // };
@@ -121,8 +122,9 @@ function App(props) {
             <Typography variant="h6" color="inherit" noWrap>
               Реестр УУ
             </Typography>
+            {/* <label className='authbut'>{Context.user}</label> */}
 
-            <label className='authbut' onClick={() => setContext(false)}>Выход</label>
+            <label className='authbut' onClick={() => setContext({user:"", p: false})}>Выход</label>
 
           </Toolbar>
         </AppBar>

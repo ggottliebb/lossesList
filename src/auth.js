@@ -14,13 +14,13 @@ export default function Auth() {
     <Context.Provider value={[context, setContext]}>
       <BrowserRouter>
         <Switch>
-          {!context &&
+          {!context.p &&
             <Fragment>
               <Route path="/login" component={Login} />
               <Redirect to="/login" />
             </Fragment>
             }
-          {context &&
+          {context.p &&
             <Fragment>
               <Route path="/" component={App}  />
               <Redirect to="/dashboard" />

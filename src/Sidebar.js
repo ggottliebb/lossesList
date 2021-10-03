@@ -87,7 +87,14 @@ function Sidebar(props) {
   const closeAddTodoDialog = () => setAddTodoDialogOpen(false)
 
   const seach = (e) => {
-    let mas = props.todos.filter(todo => todo.text[3].includes(e.target.value));
+  // console.log(todo)
+    let mas = props.todos.filter(todo => 
+      todo.text[3].includes(e.target.value)||
+      todo.text[4].toLowerCase().includes(e.target.value.toLowerCase())||
+      todo.text[17].toLowerCase().includes(e.target.value.toLowerCase())||
+      todo.text[16].toLowerCase().includes(e.target.value.toLowerCase())||
+      todo.text[22].toLowerCase().includes(e.target.value.toLowerCase())
+    );
     if(mas.length>0)
     setTodos(mas);
     else if (e.target.value===""){

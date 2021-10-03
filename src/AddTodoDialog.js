@@ -14,7 +14,7 @@ import Select from '@material-ui/core/Select';
 
 const AddTodoDialog = (props) => {
   let normalizedApi = useNormalizedApi()
-  let [text, setText] = useState({
+  const textDef = {
     datess: "",
     dateapp: "",
     numapp: "",
@@ -40,8 +40,13 @@ const AddTodoDialog = (props) => {
     status: "",
     com1: "",
     franchType: "",
+  }
 
-  })
+  let [text, setText] = useState(textDef)
+
+  // var char = /["a-zA-Z]/;
+  // var val = String.fromCharCode(text.numauto);
+  // var test = char.test(val);
 
   const [open, setOpen] = React.useState({
     cert: false,
@@ -53,7 +58,7 @@ const AddTodoDialog = (props) => {
     docorig: false
   });
 
-
+  let char = /["а-яА-Я]/;
 
   const handleOpen = (id) => {
     setOpen({ ...open, id: true });
@@ -61,10 +66,10 @@ const AddTodoDialog = (props) => {
   let [er, setEr] = useState({
     numapp: false,
     datess: false,
-
+    numauto: false,
     dateapp: false,
     dateappText: false,
-
+    dateappCheck: false,
     numcase: false,
     polic: false,
     mark: false
@@ -89,12 +94,42 @@ const AddTodoDialog = (props) => {
         break
 
       default:
-        if (new Date(text.datess) >= new Date(text.dateapp)) {
+        if (new Date(text.datess) > new Date(text.dateapp)) {
           setEr({
             numapp: false,
             datess: false,
             dateapp: true,
+            numauto: false,
             dateappText: true,
+            dateappCheck: false,
+            numcase: false,
+            polic: false,
+            mark: false
+          })
+          break
+        }
+        if (new Date(text.datess) > new Date(text.dateinsp)) {
+          setEr({
+            numapp: false,
+            datess: false,
+            dateapp: true,
+            numauto: false,
+            dateappText: false,
+            dateappCheck: true,
+            numcase: false,
+            polic: false,
+            mark: false
+          })
+          break
+        }
+        if (text.numauto.match(char)!=null||text.numauto==="") {
+          setEr({
+            numapp: false,
+            datess: false,
+            dateapp: false,
+            numauto: true,
+            dateappText: false,
+            dateappCheck: false,
             numcase: false,
             polic: false,
             mark: false
@@ -105,7 +140,6 @@ const AddTodoDialog = (props) => {
           .then(() => {
             props.onSuccess();
             cleanEn();
-
           })
           .catch(() => {
             props.onCancel()
@@ -124,6 +158,7 @@ const AddTodoDialog = (props) => {
       polic: false,
       mark: false
     });
+    setText(textDef);
     props.onCancel();
   }
 
@@ -280,6 +315,10 @@ const AddTodoDialog = (props) => {
                 id="numauto"
                 label="Г/н"
                 type="text"
+                error={er.numauto}
+                // pattern="[A-Za-z]" 
+                // inputProps={{ pattern: "[a-z]" }}
+                inputProps={{ pattern: '[a-z]' }}
                 style={{ width: 320 }}
 
               // inputProps= {{
@@ -312,6 +351,8 @@ const AddTodoDialog = (props) => {
                 autoFocus
                 margin="dense"
                 id="dateinsp"
+                error={er.dateappCheck}
+                helperText={er.dateappCheck ? 'Дата осмотра должна быть позже даты СС' : ""}
                 label="Дата осмотра"
                 type="date"
                 style={{ width: 320 }}
@@ -390,8 +431,8 @@ const AddTodoDialog = (props) => {
                     value={text.cert}
                     onChange={(e) => setText({ ...text, cert: e.target.value })}
                   >
-                    <MenuItem value={true} >Да</MenuItem>
-                    <MenuItem value={false}>Нет</MenuItem>
+                    <MenuItem value={"Да"} >Да</MenuItem>
+                    <MenuItem value={"Нет"}>Нет</MenuItem>
                   </Select>
                 </FormControl>
               </div>
@@ -451,8 +492,8 @@ const AddTodoDialog = (props) => {
                     value={text.docorig}
                     onChange={(e) => setText({ ...text, docorig: e.target.value })}
                   >
-                    <MenuItem value={true}>Да</MenuItem>
-                    <MenuItem value={false}>Нет</MenuItem>
+                    <MenuItem value={"Да"}>Да</MenuItem>
+                    <MenuItem value={"Нет"}>Нет</MenuItem>
                   </Select>
                 </FormControl>
               </div>

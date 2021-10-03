@@ -14,8 +14,9 @@ export default function Login(props) {
   let res = {};
   const login = async (e) => {
     e.preventDefault();
+    const user = e.currentTarget[1].value;
     res = await normalizedApi.authUser(e.currentTarget[1].value, e.currentTarget[3].value);
-    setContext(res)
+    setContext({user:user, p: res})
   }
 
   return (
